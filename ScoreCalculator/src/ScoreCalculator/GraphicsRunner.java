@@ -26,7 +26,7 @@ public class GraphicsRunner extends JFrame implements ActionListener
 		apObjectList = new ArrayList<AP>();
 		apObjectList.add(new APArtHistory());
 		apObjectList.add(new APMusicTheory());
-		/*apObjectList.add(new APEnglishLanguage());
+		apObjectList.add(new APEnglishLanguage());
 		apObjectList.add(new APEnglishLiterature());
 		apObjectList.add(new APComparativeGovernment());
 		apObjectList.add(new APEuropeanHistory());
@@ -52,7 +52,7 @@ public class GraphicsRunner extends JFrame implements ActionListener
 		apObjectList.add(new APGerman());
 		apObjectList.add(new APLatin());
 		apObjectList.add(new APSpanishLanguage());
-		apObjectList.add(new APSpanishLiterature());*/
+		apObjectList.add(new APSpanishLiterature());
 		
 		
 		buttonList = new ArrayList<JButton>();
