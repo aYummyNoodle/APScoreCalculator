@@ -20,7 +20,6 @@ public class APArtHistory extends AP
 		double section1Score = (double)mcScore/(getMCQuestions());
 		double section2Score = (double)frqScore/46;
 		double compositeScore = section1Score*getSection1Weight() + section2Score*getSection2Weight();
-		System.out.println(compositeScore);
 		
 		int apScore = 1;
 		

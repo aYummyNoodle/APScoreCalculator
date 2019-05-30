@@ -5,6 +5,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.io.*;
+import java.nio.file.Paths;
+import java.nio.file.*;
 
 public class APFrame extends JFrame implements ActionListener
 {
@@ -16,6 +20,7 @@ public class APFrame extends JFrame implements ActionListener
 	private int frqQuestions;
 	private int apScore;
 	private double percentile;
+	private String savedMCScore;
 	
 	public APFrame(AP apObject)
 	{
@@ -23,12 +28,20 @@ public class APFrame extends JFrame implements ActionListener
 		frqQuestions = _apObject.getFRQQuestions();
 		Container cp = getContentPane();
 		
+		try {
+			Scanner scanner = new Scanner(new File(_apObject.getName()));
+			savedMCScore = scanner.nextLine();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		
 		cp.setLayout(new FlowLayout());
 		
 		mcLabel = new JLabel("Enter multiple choice score");
 		cp.add(mcLabel);
 		
-		mcTF = new JTextField("0", 2);
+		mcTF = new JTextField(savedMCScore, 2);
 		cp.add(mcTF);
 		
 		frqTFList = new ArrayList<JTextField>();
@@ -37,7 +50,17 @@ public class APFrame extends JFrame implements ActionListener
 		{
 			JLabel frqLabel = new JLabel("Enter free response #" + i + " score");
 			cp.add(frqLabel);
-			JTextField frqTF = new JTextField("0", 2);
+			
+			String savedFRQScore = "";
+			
+			try {
+				Scanner scanner1 = new Scanner(new File(_apObject.getName()));
+				savedFRQScore = Files.readAllLines(Paths.get(_apObject.getName())).get(i);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			JTextField frqTF = new JTextField(savedFRQScore, 2);
 			cp.add(frqTF);
 			frqTFList.add(frqTF);
 		}
@@ -62,11 +85,27 @@ public class APFrame extends JFrame implements ActionListener
 		{
 			int mcScore = Integer.parseInt(mcTF.getText());
 			int frqScore = 0;
+			try {
+				Writer fileWriter = new FileWriter(_apObject.getName());
+				fileWriter.write(mcTF.getText());
+				fileWriter.write("\n");
+				for (int i = 1; i <= frqQuestions; i++)
+				{
+					fileWriter.write(frqTFList.get(i - 1).getText());
+					fileWriter.write("\n");
+				}
+				
+				fileWriter.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
 			for (int i = 1; i <= frqQuestions; i++)
 			{
 				frqScore += Integer.parseInt(frqTFList.get(i - 1).getText());
 			}
-			
+
 			apScore = _apObject.calculateAPScore(mcScore, frqScore);
 			
 			percentile = _apObject.calculatePercentile(apScore);

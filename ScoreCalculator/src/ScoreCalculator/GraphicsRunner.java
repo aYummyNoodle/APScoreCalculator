@@ -8,10 +8,6 @@ import java.util.List;
 
 public class GraphicsRunner extends JFrame implements ActionListener
 {
-	//private JFrame artHistory = new JFrame();
-	//private JButton apButton;
-	//private JButton satButton;
-	//private JButton btnArtHistory, btnMusicTheory, btnLang, btnLit, btnCompGov, btnEuro, btnGeo, btnMacro, btnMicro, btnPsych, btnUS, btnUSGov, btnUSHistory, btnWorld, btnCalcAB, btnCalcBC, btnCompSciA, btnStats, btnBio, btnChem, btnEnvironment, btnPhysicsC, btnPhysics1, btnPhysics2, btnFrench, btnGerman, btnLatin, btnSpanishLang, btnSpanishLit;
 	private List<JButton> buttonList;
 	private List<AP> apObjectList;
 	
