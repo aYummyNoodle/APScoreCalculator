@@ -15,11 +15,13 @@ public class GraphicsRunner extends JFrame implements ActionListener
 	{
 		Container cp = getContentPane();
 		
-		cp.setLayout(new GridLayout(5, 6, 3, 3));
+		cp.setLayout(new GridLayout(6, 6, 3, 3));
 		
-		String[] names = {"AP Art History", "AP Music Theory", "AP English Language", "AP English Literature", "AP Comparative Government", "AP European History", "AP Human Geography", "AP Macroeconomics", "AP Microeconomics", "AP Psychology", "AP US Government", "AP US History", "AP World History", "AP Calculus AB", "AP Calculus BC", "AP Computer Science A", "AP Statistics", "AP Biology", "AP Chemistry", "AP Environmental Science", "AP Physics C EM", "AP Physics C Mechanics", "AP Physics 1", "AP Physics 2", "AP French", "AP German", "AP Latin", "AP Spanish Language", "AP Spanish Literature"};
+		String[] names = {"SAT", "ACT", "AP Art History", "AP Music Theory", "AP English Language", "AP English Literature", "AP Comparative Government", "AP European History", "AP Human Geography", "AP Macroeconomics", "AP Microeconomics", "AP Psychology", "AP US Government", "AP US History", "AP World History", "AP Calculus AB", "AP Calculus BC", "AP Computer Science A", "AP Statistics", "AP Biology", "AP Chemistry", "AP Environmental Science", "AP Physics C EM", "AP Physics C Mechanics", "AP Physics 1", "AP Physics 2", "AP French", "AP German", "AP Latin", "AP Spanish Language", "AP Spanish Literature"};
 		
 		apObjectList = new ArrayList<AP>();
+		apObjectList.add(new SAT());
+		apObjectList.add(new ACT());
 		apObjectList.add(new APArtHistory());
 		apObjectList.add(new APMusicTheory());
 		apObjectList.add(new APEnglishLanguage());
