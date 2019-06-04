@@ -26,9 +26,9 @@ public class SATFrame extends JFrame implements ActionListener
 		
 		try {
 			Scanner scanner = new Scanner(new File("SAT"));
-			savedMathScore = Files.readAllLines(Paths.get("SAT")).get(1);
-			savedReadingScore = Files.readAllLines(Paths.get("SAT")).get(2);
-			savedWritingScore = Files.readAllLines(Paths.get("SAT")).get(3);
+			savedMathScore = Files.readAllLines(Paths.get("SAT")).get(0);
+			savedReadingScore = Files.readAllLines(Paths.get("SAT")).get(1);
+			savedWritingScore = Files.readAllLines(Paths.get("SAT")).get(2);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -85,6 +85,10 @@ public class SATFrame extends JFrame implements ActionListener
 			}
 			
 			SATScore = SAT.calculateSATScore(mathScore, readingScore, writingScore);
+			
+			String message = "Your predicted SAT Score is " + SATScore + ".";
+			
+			SATFrame.infoBox(message, "SAT");
 		}
 
 	}
