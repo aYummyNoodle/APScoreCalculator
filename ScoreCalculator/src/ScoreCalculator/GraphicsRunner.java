@@ -69,7 +69,7 @@ public class GraphicsRunner extends JFrame implements ActionListener
 		setVisible(true);
 	}
 
-	public static void main( String args[] )
+	/*public static void main( String args[] )
 	{	
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -77,7 +77,7 @@ public class GraphicsRunner extends JFrame implements ActionListener
 				new GraphicsRunner();
 			}
 		});
-	}
+	}*/
 	
 	public void actionPerformed(ActionEvent evt) {
 		
