@@ -87,6 +87,12 @@ public class GraphicsRunner extends JFrame implements ActionListener
 			new SATFrame();
 		}
 		
+		if (evt.getSource() == buttonList.get(1))
+		{
+			dispose();
+			new ACTFrame();
+		}
+		
 		for (int i = 2; i < buttonList.size(); i++)
 		{
 			if (evt.getSource() == buttonList.get(i))
